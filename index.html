@@ -11,11 +11,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
     <link href="app.css" rel="stylesheet">
     <!-- Link to app.js with defer till HTML render -->
+    <script type="text/javascript" src="dino.json"></script>
     <script defer src="app.js"></script>
 </head>
 <body>
     <header>
-        <h2>Natural History Museum</h2> 
+            <h2>Natural History Museum</h2>
         <h1>Dinosaurs</h1>
         <h3>How do you compare?</h3>
     </header>
@@ -23,12 +24,12 @@
     <form id="dino-compare">
         <div class="form-container">
             <p>Name:</p>
-            <input id="name" class="form-field__full" type="name" name="name">
+            <input id="name" class="form-field__full" type="name" name="name" value="test name">
             <p>Height</p>
-            <label>Feet: <input id="feet" class="form-field__short" type="number" name="feet"></label>
-            <label>inches: <input id="inches" class="form-field__short" type="number" name="inches"></label>
+            <label>Feet: <input id="feet" class="form-field__short" type="number" name="feet" value="10"></label>
+            <label>inches: <input id="inches" class="form-field__short" type="number" name="inches" value="12"></label>
             <p>Weight:</p>
-            <label><input id="weight" class="form-field__full" type="number" name="weight">lbs</label>
+            <label><input id="weight" class="form-field__full" type="number" name="weight" value="14">lbs</label>
             <p>Diet:</p>
             <select id="diet" class="form-field__full" name="diet">
                 <option>Herbavor</option>
