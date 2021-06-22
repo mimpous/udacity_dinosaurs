@@ -61,10 +61,10 @@ const human = {
  * @returns {boolean} - Checks for missing fields
  */
  function validateForm() {
-    let name = document.getElementById("name");
-    let feet = document.getElementById("feet");
-    let inches = document.getElementById("inches");
-    let weight = document.getElementById("weight");
+    const name = document.getElementById("name");
+    const feet = document.getElementById("feet");
+    const inches = document.getElementById("inches");
+    const weight = document.getElementById("weight");
 
     if (name.value === "") {
         alert("Please enter a name!");
@@ -123,8 +123,7 @@ const compareHeight = ( dinoObj ) => {
 const compareDiet = ( dinoObj ) => {
     const humanDiet = human.diet.toLowerCase();
     const dinosaurDiet = dinoObj.diet.toLowerCase();
-
-   
+ 
      
     if(humanDiet == dinosaurDiet) {
         return `${dinoObj.species} had the same diet as you. You are both ${human.diet}.!`
@@ -153,7 +152,8 @@ const compareWeight = ( dinoObj ) => {
 // Add tiles to DOM
 function addTilesToDOM() {
    
-    
+    dinosaurs.sort(function (a, b) { return 0.5 - Math.random() })
+
     const dinoPart1 = dinosaurs.slice(0, 4);
     const dinoPart2 = dinosaurs.slice(4, 8);
     //for comparison reasons
@@ -174,6 +174,7 @@ function addTilesToDOM() {
         //Add the right styling
         grid.appendChild(div).className = "grid-item"; 
         h3.textContent = item.species;
+        // eslint-disable-next-line no-use-before-define
         p.textContent = compareAll(item); 
         
         img.src = item.image; 
@@ -196,7 +197,7 @@ function compareAll( item ) {
                 case 0:
                     return compareDiet(item);
                 case 1:
-                    return compareDiet(item);
+                    return compareHeight(item);
                 case 2:
                     return compareWeight(item);
                 default:
@@ -210,6 +211,19 @@ function compareAll( item ) {
 // Remove form from screen
 const removeForm = () => document.getElementById("dino-compare").style.display = "none";
 
+ 
+// Create a "Try again button"
+// eslint-disable-next-line func-style
+const tryAgainButton = function() {
+    const button = document.createElement('button');
+    button.innerHTML = `Try Again!`;
+    dinographic.appendChild(button);
+    document.querySelector('button').addEventListener('click', () => {
+        window.setTimeout(() => {
+            window.location.reload();
+        }, 100);
+    })
+}
 
 
 // On button click, prepare and display infographic
@@ -224,6 +238,8 @@ btn.addEventListener('click',  function() {
         addTilesToDOM();
   
         removeForm();
+
+        tryAgainButton();
     }
 });
   
