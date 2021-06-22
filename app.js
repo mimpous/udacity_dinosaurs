@@ -124,11 +124,7 @@ const compareDiet = ( dinoObj ) => {
     const humanDiet = human.diet.toLowerCase();
     const dinosaurDiet = dinoObj.diet.toLowerCase();
 
-    console.log(dinoObj.type);
-
-    if ( dinoObj.type==='human') {
-        return '';
-    }
+   
      
     if(humanDiet == dinosaurDiet) {
         return `${dinoObj.species} had the same diet as you. You are both ${human.diet}.!`
@@ -178,7 +174,7 @@ function addTilesToDOM() {
         //Add the right styling
         grid.appendChild(div).className = "grid-item"; 
         h3.textContent = item.species;
-        p.textContent = compareDiet(item); 
+        p.textContent = compareAll(item); 
         
         img.src = item.image; 
     
@@ -188,7 +184,27 @@ function addTilesToDOM() {
 
 
 }
- 
+
+function compareAll( item ) {
+  
+    if ( item.type=='dino' && item.species=='Pigeon') {
+        return 'All birds are dinosaurs';
+    } else  if ( item.type=='human') {
+            return '';
+        } else {
+            switch (Math.floor(Math.random() * 2)) {
+                case 0:
+                    return compareDiet(item);
+                case 1:
+                    return compareDiet(item);
+                case 2:
+                    return compareWeight(item);
+                default:
+                  return "dinosaurs are cool";
+              } 
+        } 
+    
+}
  
 
 // Remove form from screen
@@ -204,8 +220,7 @@ btn.addEventListener('click',  function() {
     if (validateForm()) {
 
         getValuesFromForm();
-
-        //TODO MAKE MATH TILES 
+ 
         addTilesToDOM();
   
         removeForm();
