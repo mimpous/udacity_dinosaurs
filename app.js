@@ -1,8 +1,11 @@
  
-const dinosData = async () => {
-    const response = await fetch("./dino.json");
-    const data = await response.json();
- 
+const btn = document.getElementById("btn");
+const grid = document.getElementById("grid");
+
+const dinosData = async () => { 
+    const response = await fetch("dino.json");
+   
+    const data = await response.json(); 
     return data.Dinos;
 };
 
@@ -51,17 +54,7 @@ const human = {
     species: 'Human'
 };
 
-
-class Human {
-    constructor( human ) {
-        this.image = human.image;
-        this.species = human.species;
-        this.weight = human.weight;
-        this.height = human.feet;
-        this.diet = human.diet; 
-        this.type = 'human';
-    }
-}
+ 
 
 /**
  * @description - Validates the form
@@ -196,8 +189,7 @@ function addTilesToDOM() {
 
 }
  
-const dinographic = document.querySelector('main');
-
+ 
 
 // Remove form from screen
 const removeForm = () => document.getElementById("dino-compare").style.display = "none";
@@ -205,14 +197,15 @@ const removeForm = () => document.getElementById("dino-compare").style.display =
 
 
 // On button click, prepare and display infographic
-btn.addEventListener('click', async function(event) {
+btn.addEventListener('click',  function() {
     // wait dinosData complete
-    const dinos = await dinosData();
+   // const dinos = await dinosData();
     // do something with dinos 
     if (validateForm()) {
 
         getValuesFromForm();
 
+        //TODO MAKE MATH TILES 
         addTilesToDOM();
   
         removeForm();

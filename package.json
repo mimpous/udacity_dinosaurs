@@ -1,0 +1,22 @@
+{
+  "name": "udacity_dinosaurs",
+  "version": "1.0.0",
+  "description": "## Student Instructions",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mimpous/udacity_dinosaurs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mimpous/udacity_dinosaurs/issues"
+  },
+  "homepage": "https://github.com/mimpous/udacity_dinosaurs#readme",
+  "devDependencies": {
+    "eslint": "^7.28.0"
+  }
+}
